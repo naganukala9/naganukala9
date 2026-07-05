@@ -33,8 +33,8 @@ export function InvestmentStyleTable({ rows }: Props) {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr key={row.label} className={row.is_total ? "total-row" : undefined}>
+            {rows.map((row, i) => (
+              <tr key={`${row.label}-${i}`} className={row.is_total ? "total-row" : undefined}>
                 <td>{row.label}</td>
                 {COLUMNS.map((c) => (
                   <td key={c.key}>{formatPercent(row[c.key] as number)}</td>
